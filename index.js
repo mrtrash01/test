@@ -41,6 +41,10 @@ fs.readdir('./commands/', (err, files) => {
 client.on("ready", async () => {
     console.log(`${client.user.username} is online`) 
     client.user.setActivity('this server', {type: "WATCHING"})
+    var cronJob = require("cron").cronJob;
+    var remind = new cronJob('0 0,30 * * * *', function() {
+        console.log('check to see if the dyno is on')
+    })
 })
 
 
